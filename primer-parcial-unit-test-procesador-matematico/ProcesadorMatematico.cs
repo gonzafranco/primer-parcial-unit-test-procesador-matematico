@@ -21,12 +21,6 @@ namespace primer_parcial_unit_test_procesador_matematico
 
         public void Dividir(int dividendo, int divisor)
         {
-            if(divisor == 0)
-            {
-                this._resultado = 0;
-                return;
-            }
-
 
             this._resultado = dividendo / divisor;
             if (this.EsNegativo())

@@ -1,5 +1,6 @@
 using Xunit;
 using primer_parcial_unit_test_procesador_matematico;
+using System;
 
 namespace Procesador_matematico_test
 {
@@ -43,12 +44,18 @@ namespace Procesador_matematico_test
 
             ProcesadorMatematico procesadorMatematico = new ProcesadorMatematico();
 
-            int resultadoEsperado = 0;
 
-            procesadorMatematico.Dividir(12, 0);
-            int resultadoReal = procesadorMatematico.getResultado();
-
-            Assert.Equal(resultadoEsperado, resultadoReal);
+            
+            try
+            {
+                procesadorMatematico.Dividir(12, 0);
+            }
+            catch (DivideByZeroException ex)
+            {
+                Assert.True(true);
+                return;
+            }
+            Assert.True(false);
 
         }
 
